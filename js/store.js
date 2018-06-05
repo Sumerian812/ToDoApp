@@ -108,7 +108,7 @@
 		} else {
 
     		// Assign an ID
-			updateData.id = parseInt(newId);
+			updateData.id = newId;
     
 
 			todos.push(updateData);
