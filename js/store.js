@@ -89,13 +89,11 @@
 
 		// If an ID was actually given, find the item and update each property
 		if (id) {
-			for (var i = 0; i < todos.length; i++) {
-				if (todos[i].id === id) {
-					for (var key in updateData) {
-						todos[i][key] = updateData[key];
-					}
-					break;
-				}
+
+			var changedObj = todos.find(o => o.id === id); // find object that has been changed
+
+			for (var key in updateData) { // for each key in updateData, update object in todos array
+				changedObj[key] = updateData[key];
 			}
 
 			localStorage[this._dbName] = JSON.stringify(data);
