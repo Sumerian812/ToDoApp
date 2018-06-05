@@ -82,9 +82,10 @@
 
 		// Generate an ID
 	    var newId = ""; 
-		newId = Math.random().toString(36).substr(2, 6); /* Generate unique IDs: convert random number to 
-															base 36 (numbers + letters), and grab the first 
-															6 characters after the decimal. https://gist.github.com/gordonbrander/2230317 */
+		var timestamp = Date.now(); //  returns the number of milliseconds elapsed since January 1, 1970
+		var randomNumber = Math.random()/timestamp; // divide random number by timestamp to ensure unique number
+
+		newId = randomNumber.toString().substr(2, 6); //convert random number to string, grab first 6 characters after the decimal
 
 		// If an ID was actually given, find the item and update each property
 		if (id) {
@@ -102,7 +103,7 @@
 		} else {
 
     		// Assign an ID
-			updateData.id = newId;
+			updateData.id = parseInt(newId);
     
 
 			todos.push(updateData);
