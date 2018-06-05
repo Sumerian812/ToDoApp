@@ -80,13 +80,6 @@
 
 		callback = callback || function () {};
 
-		// Generate an ID
-	    var newId = ""; 
-		var timestamp = Date.now(); //  returns the number of milliseconds elapsed since January 1, 1970
-		var randomNumber = Math.random()/timestamp; // divide random number by timestamp to ensure unique number
-
-		newId = randomNumber.toString().substr(2, 6); //convert random number to string, grab first 6 characters after the decimal
-
 		// If an ID was actually given, find the item and update each property
 		if (id) {
 
@@ -99,6 +92,12 @@
 			localStorage[this._dbName] = JSON.stringify(data);
 			callback.call(this, todos);
 		} else {
+			// Generate an ID
+			var newId = ""; 
+			var timestamp = Date.now(); //  returns the number of milliseconds elapsed since January 1, 1970
+			var randomNumber = Math.random()/timestamp; // divide random number by timestamp to ensure unique number
+	
+			newId = randomNumber.toString().substr(2, 6); //convert random number to string, grab first 6 characters after the decimal	
 
     		// Assign an ID
 			updateData.id = parseInt(newId);
