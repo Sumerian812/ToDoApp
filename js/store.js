@@ -17,7 +17,7 @@
 
 		if (!localStorage[name]) {
 			var data = {
-				todos: []
+				todos: [] 
 			};
 
 			localStorage[name] = JSON.stringify(data);
@@ -82,11 +82,15 @@
 
 		// Generate an ID
 	    var newId = ""; 
-	    var charset = "0123456789";
+	    // var charset = "0123456789";
 
-        for (var i = 0; i < 6; i++) {
-     		newId += charset.charAt(Math.floor(Math.random() * charset.length));
-		}
+        // for (var i = 0; i < 6; i++) {
+     	// 	newId += charset.charAt(Math.floor(Math.random() * charset.length));
+		// }
+
+		newId = Math.random().toString(36).substr(2, 6); /* Generate unique IDs: convert random number to 
+															base 36 (numbers + letters), and grab the first 
+															6 characters after the decimal. */
 
 		// If an ID was actually given, find the item and update each property
 		if (id) {
