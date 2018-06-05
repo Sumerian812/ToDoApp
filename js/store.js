@@ -121,14 +121,13 @@
 	Store.prototype.remove = function (id, callback) {
 		var data = JSON.parse(localStorage[this._dbName]);
 		var todos = data.todos;
-		var todoId;
 		
 		for (var i = 0; i < todos.length; i++) {
 			if (todos[i].id === id) {
 				todos.splice(i, 1);
 			}
 		}
-		
+
 		localStorage[this._dbName] = JSON.stringify(data);
 		callback.call(this, todos);
 	};
