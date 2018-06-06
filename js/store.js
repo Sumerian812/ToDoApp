@@ -118,12 +118,10 @@
 	Store.prototype.remove = function (id, callback) {
 		var data = JSON.parse(localStorage[this._dbName]);
 		var todos = data.todos;
+		var itemToDelete = todos.find(o => o.id === id); // find object with passed in ID
+		var indexOfItemToDelete = todos.indexOf(itemToDelete); // get index of found object
 		
-		for (var i = 0; i < todos.length; i++) {
-			if (todos[i].id === id) {
-				todos.splice(i, 1);
-			}
-		}
+		todos.splice(indexOfItemToDelete, 1); // remove object from todos array
 
 		localStorage[this._dbName] = JSON.stringify(data);
 		callback.call(this, todos);
