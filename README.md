@@ -16,3 +16,6 @@ All todos are stored locally on the user's disk and remain there until the user 
 
 This application is written with pure JavaScript, but can be enhanced by implementing a library.
 
+---
+For details on the app's functionality, check out the [Wiki](https://github.com/Sumerian812/ToDoApp/wiki)
+
