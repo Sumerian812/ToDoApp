@@ -207,13 +207,6 @@ describe('controller', function () {
 
 			subject.setView('');
 
-			model.read.and.callFake(function (callback) {
-				callback([{
-					title: 'a new todo',
-					completed: false
-				}]);
-			});
-
 			view.trigger('newTodo', 'a new todo');
 
 			expect(model.create).toHaveBeenCalledWith('a new todo', jasmine.any(Function));
